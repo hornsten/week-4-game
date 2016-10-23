@@ -1,11 +1,14 @@
-figure {
+#beatrix, #elle, #vernita, #oren {
 	float:left;
 	display: inline;
 	border: 2px solid gray;
+	height: 150px;
+	width: 200px;
 }
 
-h1 {
-	color: green;
+h3 {
+	display: block;
+	clear:both;
 }
 
 #stage,#defender {
