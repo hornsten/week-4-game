@@ -55,14 +55,19 @@ function initializeGame() {
 //Click event to choose hero. Others are moved to the staging row//
 $('.character').on('click', function() {
 
-	if(isHeroChosen) {
-		$(".defender" ).append($(this)); 
+	if(isDefenderChosen) {
+		return;
+	} else if(isHeroChosen) {
+		$(".defender" ).append($(this));
+		isDefenderChosen = true;
 		
 	} else {
 		$(this).addClass('hero');
 		$('.character').not(this).appendTo('.stage')//.addClass('enemies');
 		isHeroChosen=true;
 	}
+
+
 });
 
 
