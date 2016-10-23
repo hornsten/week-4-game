@@ -1,6 +1,7 @@
+
 $(document).ready(function () {
 
-var characters = {
+var character = {
 
 	guyA: {
 		name: 'Guy A',
@@ -40,13 +41,23 @@ function initializeGame() {
 	$('.defender,.stage').empty();
 }
 
-//Click event to choose hero. Apply id hero to chosen image//
+//Click event to choose hero. Others are moved to the staging row//
 $('.character').on('click', function() {
 		
-		$('.character').not(this).appendTo('.stage');
-		//console.log("it is done");
+
+		$('.character').not(this).appendTo('.stage').addClass('enemies');
+		$('enemies').removeClass('character');
+		$('.character').off('click');
+
+});
+
+$('.stage').on('click', function() {
+
+	$(event.target).appendTo('.defender');
 })
+
 
 // call initializeGame to prepare game for play
     initializeGame();
 });
+
