@@ -49,12 +49,12 @@ function initializeGame() {
 	document.getElementById("beatrix").src = character.beatrix.url;
 	document.getElementById("bname").innerHTML = character.beatrix.name;
 	document.getElementById("bhealth").innerHTML = character.beatrix.health;
-	document.getElementById("elle").src = character.elle.url;
-	document.getElementById("ename").innerHTML = character.elle.name;
-	document.getElementById("ehealth").innerHTML = character.elle.health;
 	document.getElementById("vernita").src = character.vernita.url;
 	document.getElementById("vname").innerHTML = character.vernita.name;
 	document.getElementById("vhealth").innerHTML = character.vernita.health;
+	document.getElementById("elle").src = character.elle.url;
+	document.getElementById("ename").innerHTML = character.elle.name;
+	document.getElementById("ehealth").innerHTML = character.elle.health;
 	document.getElementById("oren").src = character.oren.url;
 	document.getElementById("oname").innerHTML = character.oren.name;
 	document.getElementById("ohealth").innerHTML = character.oren.health;
