@@ -43,7 +43,6 @@ function initializeGame() {
 	heroLoses = false;
 	defenderLoses = false;
 
-	$('.defender,.stage').empty();
 
 	document.getElementById("beatrix").src = character.beatrix.url;
 	document.getElementById("elle").src = character.elle.url;
@@ -69,6 +68,29 @@ $('.character').on('click', function() {
 
 
 });
+
+$('#attack').on('click', function() {
+
+	if (character.elle.health <= 0) {
+		return;
+	} else if (character.oren.health <=0) {
+			isDefenderChosen = false;
+		}
+
+	 else {
+
+		character.elle.power += character.elle.power;
+	character.elle.health -= character.oren.power;
+	console.log("Elle Power: " + character.elle.power);
+	console.log("Elle Health: " + character.elle.health);
+
+	character.oren.health -= character.elle.power;
+	console.log("Oren Power: " + character.oren.power);
+	console.log("Oren Health: " + character.oren.health);
+	console.log("_______________________________________");
+	};
+	
+})
 
 
 });
