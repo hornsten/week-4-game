@@ -50,19 +50,20 @@ function initializeGame() {
 	document.getElementById("vernita").src = character.vernita.url;
 	document.getElementById("oren").src = character.oren.url;
 
-
-
 }
 
 //Click event to choose hero. Others are moved to the staging row//
 $('.character').on('click', function() {
 
-
-		$('.character').not(this).appendTo('.stage').addClass('nerds');
+	if(isHeroChosen) {
+		$(".defender" ).append($(this)); 
 		
-
+	} else {
+		$(this).addClass('hero');
+		$('.character').not(this).appendTo('.stage')//.addClass('enemies');
+		isHeroChosen=true;
+	}
 });
-
 
 
 });
