@@ -32,7 +32,6 @@ var character = {
 	}
 }
 
-
 var hero, defender, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attackDefender;
 initializeGame();
 
@@ -56,14 +55,17 @@ $('.character').on('click', function() {
 
 	if(isDefenderChosen) {
 		return;
+
 	} else if(isHeroChosen) {
 		$(".defender" ).append($(this));
 		isDefenderChosen = true;
+		console.log(this.valueOf());
 		
 	} else {
 		$(this).addClass('hero');
 		$('.character').not(this).appendTo('.stage')//.addClass('enemies');
 		isHeroChosen=true;
+		console.log(this.valueOf());
 	}
 
 
@@ -89,6 +91,12 @@ $('#attack').on('click', function() {
 	console.log("Oren Health: " + character.oren.health);
 	console.log("_______________________________________");
 	};
+	
+})
+
+$('#restart').on('click', function() {
+
+	initializeGame();
 	
 })
 

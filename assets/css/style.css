@@ -1,3 +1,16 @@
+body {
+	background-image: url('../images/killbill.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+
+}
+
+.container {
+	font-family: 'Russo One', sans-serif;
+
+}
+
 #beatrix, #elle, #vernita, #oren {
 	float:left;
 	display: inline;
@@ -9,6 +22,11 @@
 h3 {
 	display: block;
 	clear:both;
+}
+
+.btn {
+	background: #111;
+	color: red;
 }
 
 #stage,#defender {
