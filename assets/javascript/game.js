@@ -42,10 +42,8 @@ function initializeGame() {
 
 //Click event to choose hero. Apply id hero to chosen image//
 $('.character').on('click', function() {
-
-		alert(this.id);
-		//$('.character').applyId('#hero');
-		//$('.start').appendTo('.stage');
+		
+		$('.character').not(this).appendTo('.stage');
 		//console.log("it is done");
 })
 
