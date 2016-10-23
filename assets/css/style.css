@@ -12,9 +12,8 @@ body {
 }
 
 #beatrix, #elle, #vernita, #oren {
-	float:left;
+	text-align: center;
 	display: inline;
-	border: 2px solid gray;
 	height: 150px;
 	width: 200px;
 }
@@ -22,6 +21,16 @@ body {
 h3 {
 	display: block;
 	clear:both;
+}
+
+div.character {
+	background: white;
+	height: 190px;
+	width: 225px;
+	float: left;
+	display: inline;
+	border: 2px solid gray;
+	text-align: center;
 }
 
 .btn {
