@@ -1,0 +1,14 @@
+figure {
+	float:left;
+	display: inline;
+	border: 2px solid gray;
+}
+
+h1 {
+	color: green;
+}
+
+#stage,#defender {
+
+	height: 100px;
+}
