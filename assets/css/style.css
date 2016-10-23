@@ -2,6 +2,7 @@ body {
 	background-image: url('../images/killbill.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	max-width: 960px;
 	
 
 }
@@ -29,7 +30,7 @@ h3 {
 
 div.character {
 	background: white;
-	height: 190px;
+	height: 195px;
 	width: 225px;
 	float: left;
 	display: inline;
@@ -40,6 +41,7 @@ div.character {
 .btn {
 	background: #111;
 	color: red;
+	margin-top: 10px;
 }
 
 #stage,#defender {

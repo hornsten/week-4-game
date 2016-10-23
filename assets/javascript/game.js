@@ -89,9 +89,12 @@ $('.character').on('click', function() {
 $('#attack').on('click', function() {
 
 	if (character.elle.health <= 0) {
+		document.getElementById("fight status").innerHTML = "You lose."
 		return;
+
 	} else if (character.oren.health <=0) {
 			isDefenderChosen = false;
+			document.getElementById("fight status").innerHTML = "You win!"
 		}
 
 	 else {
@@ -99,12 +102,14 @@ $('#attack').on('click', function() {
 		character.elle.power += character.elle.power;
 	character.elle.health -= character.oren.power;
 	console.log("Elle Power: " + character.elle.power);
-	console.log("Elle Health: " + character.elle.health);
+	document.getElementById("ehealth").innerHTML = character.elle.health;
 
 	character.oren.health -= character.elle.power;
 	console.log("Oren Power: " + character.oren.power);
-	console.log("Oren Health: " + character.oren.health);
-	console.log("_______________________________________");
+	document.getElementById("ohealth").innerHTML = character.oren.health;
+	document.getElementById("fight status").innerHTML = "You have attacked Oren" +
+	" for " + character.elle.power + " damage. Oren has attacked you for " +
+	character.oren.power + " damage."
 	};
 	
 })
