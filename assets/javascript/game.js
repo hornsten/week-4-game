@@ -61,6 +61,7 @@ function initializeGame() {
 }
 
 //Click event to choose hero. Others are moved to the staging row//
+//Click event to choose hero. Others are moved to the staging row//
 $('.character').on('click', function() {
 
 	if(isDefenderChosen) {
@@ -68,18 +69,22 @@ $('.character').on('click', function() {
 
 	} else if(isHeroChosen) {
 		$(".defender" ).append($(this));
+		$(this).css('background-color', 'black');
+		$(this).css('color', 'white');
 		isDefenderChosen = true;
 		console.log(this.valueOf());
 		
 	} else {
 		$(this).addClass('hero');
-		$('.character').not(this).appendTo('.stage')//.addClass('enemies');
+		$('.character').not(this).appendTo('.stage');
+		$('.character').not(this).css('background-color', 'red');
 		isHeroChosen=true;
 		console.log(this.valueOf());
 	}
 
 
 });
+
 
 $('#attack').on('click', function() {
 

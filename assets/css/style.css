@@ -23,6 +23,10 @@ h3 {
 	clear:both;
 }
 
+.red {
+	background-color: red;
+}
+
 div.character {
 	background: white;
 	height: 190px;
