@@ -42,20 +42,19 @@ function initializeGame() {
 }
 
 //Click event to choose hero. Others are moved to the staging row//
-$('.character').on('click', function() {
+$('.character').one('click', function() {
 		
 
-		$('.character').not(this).appendTo('.stage').addClass('enemies');
-		$('enemies').removeClass('character');
-		$('.character').off('click');
+		$('.character').not(this).appendTo('.stage');
+		$(this).removeClass('character');
+		
 
 });
 
-$('.stage').on('click', function() {
+$('.stage').on('click',function() {
 
 	$(event.target).appendTo('.defender');
 })
-
 
 // call initializeGame to prepare game for play
     initializeGame();
