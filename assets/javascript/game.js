@@ -3,8 +3,8 @@ $(document).ready(function () {
 
 $("#b").data({"name":"Beatrix Kiddo","health":180,"power": 8, "url":'assets/images/beatrix.jpeg',"healthSpanId": "bhealth"});
 $("#e").data({"name":"Elle Driver","health":100,"power": 10, "url":'assets/images/elle.jpeg',"healthSpanId": "ehealth"});	
-$("#v").data({"name":"Vernita Green","health":200,"power": 15, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
-$("#o").data({"name":"Oren Ishii","health":160,"power": 20, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
+$("#v").data({"name":"Vernita Green","health":150,"power": 12, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
+$("#o").data({"name":"Oren Ishii","health":200,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
 
 // $(".character").click(function(){
 // 	alert($(this).data("health"));
@@ -66,7 +66,7 @@ $('.character').on('click', function() {
 }
 });
 
-var count = 0;
+var count = 1;
 $('#attack').on('click', function() {
 
 	if (heroHealth <= 0) {
@@ -80,14 +80,14 @@ $('#attack').on('click', function() {
 
 	 else {
 	 	
-	heroPower = heroPower + count;
+	var attack = heroPower * count;
 	count++;
 	heroHealth -= defenderPower;
 	document.getElementById(heroId).innerHTML = heroHealth;
 
 	defenderHealth -= heroPower;
 	document.getElementById(defenderId).innerHTML = defenderHealth;
-	document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + heroPower + " damage.  " + defender + " has attacked you for " +
+	document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + attack + " damage.  " + defender + " has attacked you for " +
 	defenderPower + " damage."
 
 	};
