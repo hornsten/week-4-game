@@ -66,7 +66,7 @@ $('.character').on('click', function() {
 }
 });
 
-
+var count = 0;
 $('#attack').on('click', function() {
 
 	if (heroHealth <= 0) {
@@ -79,8 +79,9 @@ $('#attack').on('click', function() {
 		}
 
 	 else {
-
-		heroPower += heroPower;
+	 	
+	heroPower = heroPower + count;
+	count++;
 	heroHealth -= defenderPower;
 	document.getElementById(heroId).innerHTML = heroHealth;
 
