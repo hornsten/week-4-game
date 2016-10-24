@@ -2,16 +2,14 @@
 $(document).ready(function () {
 
 $("#b").data({"name":"Beatrix Kiddo","health":180,"power": 8, "url":'assets/images/beatrix.jpeg',"healthSpanId": "bhealth"});
-$("#e").data({"name":"Elle Driver","health":100,"power": 10, "url":'assets/images/elle.jpeg',"healthSpanId": "ehealth"});	
-$("#v").data({"name":"Vernita Green","health":150,"power": 12, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
-$("#o").data({"name":"Oren Ishii","health":200,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
+$("#e").data({"name":"Elle Driver","health":10,"power": 1, "url":'assets/images/elle.jpeg',"healthSpanId": "ehealth"});	
+$("#v").data({"name":"Vernita Green","health":15,"power": 2, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
+$("#o").data({"name":"Oren Ishii","health":20,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
 
-// $(".character").click(function(){
-// 	alert($(this).data("health"));
-// });
 
 var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attackDefender;
 initializeGame();
+
 
 function initializeGame() {
 
@@ -20,7 +18,10 @@ function initializeGame() {
 	heroLoses = false;
 	defenderLoses = false;
 
-
+	$(".character").css('display','inline');
+	$("#b,#e,#v,#o").removeClass(".defender");
+	$("#b,#e,#v,#o").appendTo("start");
+	$('#restart').css('display','none');
 	document.getElementById("beatrix").src = $("#b").data("url");
 	document.getElementById("bname").innerHTML = $("#b").data("name");
 	document.getElementById("bhealth").innerHTML = $("#b").data("health");
@@ -33,6 +34,9 @@ function initializeGame() {
 	document.getElementById("oren").src = $("#o").data("url");
 	document.getElementById("oname").innerHTML = $("#o").data("name");
 	document.getElementById("ohealth").innerHTML = $("#o").data("health");
+	
+	
+
 }
 
 //Click event to choose hero. Others are moved to the staging row//
@@ -44,6 +48,8 @@ $('.character').on('click', function() {
 
 	} else if(isHeroChosen) {
 		$(".defender" ).append($(this));
+		$(this).addClass('enemy');
+		console.log(this);
 		$(this).css('background-color', 'black');
 		$(this).css('color', 'white');
 		isDefenderChosen = true;
@@ -70,12 +76,19 @@ var count = 1;
 $('#attack').on('click', function() {
 
 	if (heroHealth <= 0) {
-		document.getElementById("fight status").innerHTML = "You lose."
-		return;
+		document.getElementById("fight status").innerHTML = "You lose.";
+		$('#restart').css('display','block');
+			return;
+
+	} else if ( $('.stage').html().length == 0 ) {
+		$('#restart').css('display','block');
+		document.getElementById("fight status").innerHTML = "You win! Click restart to play again."
 
 	} else if (defenderHealth <= 0) {
 			isDefenderChosen = false;
-			document.getElementById("fight status").innerHTML = "You win!"
+			$('.enemy').css('display','none');
+			document.getElementById("fight status").innerHTML = "You have defeated " + defender + 
+			"!  Choose another opponent";
 		}
 
 	 else {
@@ -94,12 +107,10 @@ $('#attack').on('click', function() {
 	
 })
 
+
 $('#restart').on('click', function() {
-
 	initializeGame();
-	
 })
-
 
 });
 
