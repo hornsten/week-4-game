@@ -4,6 +4,8 @@ $(document).ready(function () {
 
 var character = {
 
+
+
 	beatrix: {
 		name: 'Beatrix Kiddo',
 		url: 'assets/images/beatrix.jpeg',
@@ -22,7 +24,7 @@ var character = {
 		name: 'Vernita Green',
 		url: 'assets/images/vernita.jpeg',
 		health: 200,
-		power: 5
+		power: 15
 	},
 
 	oren: {
@@ -33,7 +35,14 @@ var character = {
 	}
 }
 
+$("#b").data({"name":"Beatrix Kiddo","health":180,"power": 8, "url":'assets/images/beatrix.jpeg'});
+$("#e").data({"name":"Elle Driver","health":100,"power": 10});	
+$("#v").data({"name":"Vernita Green","health":200,"power": 15});	
+$("#o").data({"name":"Oren Ishii","health":160,"power": 20});	
 
+// $(".character").click(function(){
+// 	alert($(this).data("health"));
+// });
 
 var hero, defender, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attackDefender;
 initializeGame();
@@ -47,17 +56,17 @@ function initializeGame() {
 
 
 	document.getElementById("beatrix").src = character.beatrix.url;
-	document.getElementById("bname").innerHTML = character.beatrix.name;
-	document.getElementById("bhealth").innerHTML = character.beatrix.health;
+	document.getElementById("bname").innerHTML = $("#b").data("name");
+	document.getElementById("bhealth").innerHTML = $("#b").data("health");
 	document.getElementById("vernita").src = character.vernita.url;
-	document.getElementById("vname").innerHTML = character.vernita.name;
-	document.getElementById("vhealth").innerHTML = character.vernita.health;
+	document.getElementById("vname").innerHTML = $("#v").data("name");
+	document.getElementById("vhealth").innerHTML = $("#v").data("health");
 	document.getElementById("elle").src = character.elle.url;
-	document.getElementById("ename").innerHTML = character.elle.name;
-	document.getElementById("ehealth").innerHTML = character.elle.health;
+	document.getElementById("ename").innerHTML = $("#e").data("name");
+	document.getElementById("ehealth").innerHTML = $("#e").data("health");
 	document.getElementById("oren").src = character.oren.url;
-	document.getElementById("oname").innerHTML = character.oren.name;
-	document.getElementById("ohealth").innerHTML = character.oren.health;
+	document.getElementById("oname").innerHTML = $("#o").data("name");
+	document.getElementById("ohealth").innerHTML = $("#o").data("health");
 }
 
 //Click event to choose hero. Others are moved to the staging row//
@@ -72,14 +81,14 @@ $('.character').on('click', function() {
 		$(this).css('background-color', 'black');
 		$(this).css('color', 'white');
 		isDefenderChosen = true;
-		console.log(this.valueOf());
+		alert($(this).data("health"));
 		
 	} else {
 		$(this).addClass('hero');
 		$('.character').not(this).appendTo('.stage');
 		$('.character').not(this).css('background-color', 'red');
 		isHeroChosen=true;
-		console.log(this.valueOf());
+		alert($(this).data("health"));
 	}
 
 
