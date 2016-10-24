@@ -1,10 +1,10 @@
 
 $(document).ready(function () {
 
-$("#b").data({"name":"Beatrix Kiddo","health":180,"power": 8, "url":'assets/images/beatrix.jpeg'});
-$("#e").data({"name":"Elle Driver","health":100,"power": 10, "url":'assets/images/elle.jpeg'});	
-$("#v").data({"name":"Vernita Green","health":200,"power": 15, "url":'assets/images/vernita.jpeg'});	
-$("#o").data({"name":"Oren Ishii","health":160,"power": 20, "url":'assets/images/oren.jpeg'});	
+$("#b").data({"name":"Beatrix Kiddo","health":180,"power": 8, "url":'assets/images/beatrix.jpeg',"healthSpanId": "bhealth"});
+$("#e").data({"name":"Elle Driver","health":100,"power": 10, "url":'assets/images/elle.jpeg',"healthSpanId": "ehealth"});	
+$("#v").data({"name":"Vernita Green","health":200,"power": 15, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
+$("#o").data({"name":"Oren Ishii","health":160,"power": 20, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
 
 // $(".character").click(function(){
 // 	alert($(this).data("health"));
@@ -50,7 +50,8 @@ $('.character').on('click', function() {
 		defender = ($(this).data("name"));
 		defenderHealth = ($(this).data("health"));
 		defenderPower = ($(this).data("power"));
-		defenderId = ($(this).attr('id'));
+		defenderId = ($(this).data("healthSpanId"));
+
 		
 	} else {
 		$(this).addClass('hero');
@@ -60,7 +61,7 @@ $('.character').on('click', function() {
 		hero = ($(this).data("name"));
 		heroHealth = ($(this).data("health"));
 		heroPower = ($(this).data("power"));
-		heroId = ($(this).attr('id'));
+		heroId = ($(this).data("healthSpanId"));
 
 }
 });
@@ -72,7 +73,7 @@ $('#attack').on('click', function() {
 		document.getElementById("fight status").innerHTML = "You lose."
 		return;
 
-	} else if (defenderHealth <=0) {
+	} else if (defenderHealth <= 0) {
 			isDefenderChosen = false;
 			document.getElementById("fight status").innerHTML = "You win!"
 		}
@@ -81,13 +82,11 @@ $('#attack').on('click', function() {
 
 		heroPower += heroPower;
 	heroHealth -= defenderPower;
-	alert("Hero Power: " + heroPower);
 	document.getElementById(heroId).innerHTML = heroHealth;
 
 	defenderHealth -= heroPower;
-	alert("Defender Health: " + defenderHealth);
-	document.getElementById(defenderId).innerHTML = heroHealth;
-	document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + heroPower + " damage." + defender + " has attacked you for " +
+	document.getElementById(defenderId).innerHTML = defenderHealth;
+	document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + heroPower + " damage.  " + defender + " has attacked you for " +
 	defenderPower + " damage."
 
 	};
