@@ -22,7 +22,7 @@ function initializeGame() {
 	count = 1;
 
 	$(".character").css('display','inline');
-	$(".character").removeClass(".defender hero");
+	$(".character").removeClass(".defender hero enemy");
 	$('.character').prependTo('.start');
 	$('#restart').css('display','none');
 	$('.character').css('background-color', 'white');
