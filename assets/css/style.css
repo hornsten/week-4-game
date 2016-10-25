@@ -23,10 +23,6 @@ h3 {
 	clear:both;
 }
 
-.red {
-	background-color: red;
-}
-
 div.character {
 	background: white;
 	height: 195px;
@@ -41,9 +37,4 @@ div.character {
 	background: #111;
 	color: red;
 	margin-top: 10px;
-}
-
-#stage,#defender {
-
-	height: 100px;
 }
