@@ -8,7 +8,7 @@ $("#e").data({"name":"Elle Driver","health":100,"power": 5, "url":'assets/images
 $("#v").data({"name":"Vernita Green","health":150,"power": 20, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth", "music": "assets/audio/vernita.mp3"});	
 $("#o").data({"name":"Oren Ishii","health":180,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth","music": "assets/audio/oren.mp3"});	
 
-var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack;
+var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack, audio;
 initializeGame();
 
 
@@ -70,8 +70,11 @@ $('.character').on('click', function() {
 		defenderHealth = ($(this).data("health"));
 		defenderPower = ($(this).data("power"));
 		defenderId = ($(this).data("healthSpanId"));
-		var audio = new Audio($(this).data("music"));
+		audio = new Audio($(this).data("music"));
 	 	audio.play();
+	 	setTimeout(function(){
+ 				audio.pause();
+				},7000); 
 
 		
 	} else {
