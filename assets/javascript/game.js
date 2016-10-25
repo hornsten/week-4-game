@@ -106,15 +106,14 @@ $('#attack').on('click', function() {
 		$('#restart').css('display','block');
 		document.getElementById("fight status").innerHTML = "You win! Click restart to play again."
 		return;
+		
 	} else if (defenderHealth <= 0) {
 			isDefenderChosen = false;
 			$('.enemy').css('display','none');
 			document.getElementById("fight status").innerHTML = "You have defeated " + defender + 
 			"!  Choose another opponent";
 			
-		}
-
-	 else {
+		} else {
 	 
 	attack = heroPower * count;
 	count++;
