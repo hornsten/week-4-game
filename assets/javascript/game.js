@@ -8,7 +8,7 @@ $("#e").data({"name":"Elle Driver","health":100,"power": 5, "url":'assets/images
 $("#v").data({"name":"Vernita Green","health":150,"power": 20, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth"});	
 $("#o").data({"name":"Oren Ishii","health":180,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth"});	
 
-var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attackDefender;
+var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack;
 initializeGame();
 
 
@@ -18,6 +18,8 @@ function initializeGame() {
 	isDefenderChosen = false;
 	heroLoses = false;
 	defenderLoses = false;
+	attack = 0;
+	count = 1;
 
 	$(".character").css('display','inline');
 	$(".character").removeClass(".defender hero");
@@ -25,6 +27,13 @@ function initializeGame() {
 	$('#restart').css('display','none');
 	$('.character').css('background-color', 'white');
 	$('.character').css('color', 'black');
+
+	$("#b").data({"health":120,"power": 8});
+	$("#e").data({"health":100,"power": 5});	
+	$("#v").data({"health":150,"power": 20});	
+	$("#o").data({"health":180,"power": 5});
+
+
 	document.getElementById("fight status").innerHTML = "";
 	document.getElementById("beatrix").src = $("#b").data("url");
 	document.getElementById("bname").innerHTML = $("#b").data("name");
@@ -76,7 +85,7 @@ $('.character').on('click', function() {
 }
 });
 
-var count = 1;
+var count = 1; 	
 $('#attack').on('click', function() {
 	if ($('.defender').html().length == 0) {
 		document.getElementById("fight status").innerHTML = "No enemy here.";
@@ -100,12 +109,11 @@ $('#attack').on('click', function() {
 		}
 
 	 else {
-	 	
-	var attack = heroPower * count;
+	
+	attack = heroPower * count;
 	count++;
 	heroHealth -= defenderPower;
 	document.getElementById(heroId).innerHTML = heroHealth;
-
 	defenderHealth -= heroPower;
 	document.getElementById(defenderId).innerHTML = defenderHealth;
 	document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + attack + " damage.  " + defender + " has attacked you for " +
@@ -117,7 +125,8 @@ $('#attack').on('click', function() {
 
 
 $('#restart').on('click', function() {
-$('.character').prependTo('.start');
+
+
 initializeGame();
 
 })
