@@ -1,12 +1,11 @@
-
 $(document).ready(function () {
-
 
 
 $("#b").data({"name":"Beatrix Kiddo","health":120,"power": 8, "url":'assets/images/beatrix.jpeg',"healthSpanId": "bhealth", "music": "assets/audio/beatrix.mp3"});
 $("#e").data({"name":"Elle Driver","health":100,"power": 5, "url":'assets/images/elle.jpeg',"healthSpanId": "ehealth", "music": "assets/audio/whistle.mp3"});	
 $("#v").data({"name":"Vernita Green","health":150,"power": 20, "url":'assets/images/vernita.jpeg', "healthSpanId": "vhealth", "music": "assets/audio/vernita.mp3"});	
 $("#o").data({"name":"Oren Ishii","health":180,"power": 5, "url":'assets/images/oren.jpeg',"healthSpanId": "ohealth","music": "assets/audio/oren.mp3"});	
+
 
 var heroHealth, defenderHealth, heroPower, defenderPower,heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack, audio;
 initializeGame();
@@ -34,7 +33,7 @@ function initializeGame() {
 	$("#o").data({"health":180,"power": 5});
 
 
-	document.getElementById("fight status").innerHTML = "";
+	$('fight status').html = ("");
 	document.getElementById("beatrix").src = $("#b").data("url");
 	document.getElementById("bname").innerHTML = $("#b").data("name");
 	document.getElementById("bhealth").innerHTML = $("#b").data("health");
@@ -47,12 +46,11 @@ function initializeGame() {
 	document.getElementById("oren").src = $("#o").data("url");
 	document.getElementById("oname").innerHTML = $("#o").data("name");
 	document.getElementById("ohealth").innerHTML = $("#o").data("health");
-	
-	
 
+	
 }
 
-//Click event to choose hero. Others are moved to the staging row//
+
 //Click event to choose hero. Others are moved to the staging row//
 $('.character').on('click', function() {
 
