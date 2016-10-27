@@ -1,44 +1,43 @@
 body {
-	background-image: url('../images/killbill.jpeg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	margin: 0 auto;
-	height: 100%;
-	
-
+    background-image: url('../images/killbill.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 100%;
 }
 
 .container {
-	font-family: 'Russo One', sans-serif;
-	height: 100%;
-
+    font-family: 'Russo One', sans-serif;
+    height: 100%;
 }
 
-#beatrix, #elle, #vernita, #oren {
-	text-align: center;
-	display: inline;
-	height: 150px;
-	width: 200px;
+#beatrix,
+#elle,
+#vernita,
+#oren {
+    text-align: center;
+    display: inline;
+    height: 150px;
+    width: 200px;
 }
 
 h3 {
-	display: block;
-	clear:both;
+    display: block;
+    clear: both;
 }
 
 div.character {
-	background: white;
-	height: 195px;
-	width: 210px;
-	float: left;
-	display: inline;
-	border: 2px solid gray;
-	text-align: center;
+    background: white;
+    height: 195px;
+    width: 210px;
+    float: left;
+    display: inline;
+    border: 2px solid gray;
+    text-align: center;
 }
 
 .btn {
-	background: #111;
-	color: red;
-	margin-top: 10px;
+    background: #111;
+    color: red;
+    margin-top: 10px;
 }
-
