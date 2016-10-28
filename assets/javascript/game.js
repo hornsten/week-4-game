@@ -151,7 +151,7 @@ $(document).ready(function() {
         } else if (defenderHealth < attack && $('.stage').html().length !== 0) {
             isDefenderChosen = false;
             $('.enemy').css('display', 'none');
-            $("#status").html("You have defeated " + defender + "!  Choose another opponent");
+            $("#status").html("You have defeated " + defender + "!  Choose another opponent.");
 
         } else {
 
