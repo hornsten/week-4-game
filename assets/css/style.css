@@ -1,17 +1,14 @@
-body {
-    background-image: url('../images/killbill.jpeg');
-    background-size: cover;
-}
-
 body, html{
     height:100%;
     margin:0;
     padding:0;
 }
 
-.container {
+.container-fluid {
     min-height:100%;
     font-family: 'Russo One', sans-serif;
+    background-image: url('../images/killbill.jpeg');
+    background-size: cover;
 }
 
 
