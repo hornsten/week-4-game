@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     $("#b").data({
         "name": "Beatrix Kiddo",
         "health": 120,
@@ -36,6 +35,7 @@ $(document).ready(function() {
 
 
     var heroHealth, defenderHealth, heroPower, defenderPower, heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack, audio;
+    
     initializeGame();
 
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
         });
 
 
-        $('fight status').html = ("");
+        document.getElementById("fight status").innerHTML = " ";
         document.getElementById("beatrix").src = $("#b").data("url");
         document.getElementById("bname").innerHTML = $("#b").data("name");
         document.getElementById("bhealth").innerHTML = $("#b").data("health");
@@ -99,8 +99,8 @@ $(document).ready(function() {
 
         } else if (isHeroChosen) {
             $(".defender").append($(this));
-            $(this).addClass('enemy');
             console.log(this);
+            $(this).addClass('enemy');
             $(this).css('background-color', 'black');
             $(this).css('color', 'white');
             isDefenderChosen = true;
@@ -134,7 +134,7 @@ $(document).ready(function() {
         if ($('.defender').html().length == 0) {
             document.getElementById("fight status").innerHTML = "No enemy here.";
             return;
-        } else if (heroHealth <= 0) {
+        } else if (heroHealth < 1) {
             document.getElementById("fight status").innerHTML = "You lose.";
             $('#restart').css('display', 'block');
             return;
@@ -144,7 +144,7 @@ $(document).ready(function() {
             document.getElementById("fight status").innerHTML = "You win! Click restart to play again."
             return;
 
-        } else if (defenderHealth <= 0) {
+        } else if (defenderHealth < 1) {
             isDefenderChosen = false;
             $('.enemy').css('display', 'none');
             document.getElementById("fight status").innerHTML = "You have defeated " + defender +
@@ -166,7 +166,7 @@ $(document).ready(function() {
     })
 
 
-    $('#restart').on('click', function() {
+$('#restart').on('click', function() {
 
 
         initializeGame();

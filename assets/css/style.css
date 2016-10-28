@@ -1,14 +1,17 @@
 body {
     background-image: url('../images/killbill.jpeg');
     background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    height: 100%;
+}
+
+body, html{
+    height:100%;
+    margin:0;
+    padding:0;
 }
 
 .container {
+    min-height:100%;
     font-family: 'Russo One', sans-serif;
-    height: 100%;
 }
 
 #beatrix,
