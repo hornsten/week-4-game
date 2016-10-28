@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+// Sets up characters as data objects
     $("#b").data({
         "name": "Beatrix Kiddo",
         "health": 120,
@@ -33,9 +35,11 @@ $(document).ready(function() {
         "music": "assets/audio/oren.mp3"
     });
 
-
+// Declares global variables
     var heroHealth, defenderHealth, heroPower, defenderPower, heroId, defenderId, isHeroChosen, isDefenderChosen, heroLoses, defenderLoses, attack, audio;
     
+
+//calls the function to start the game    
     initializeGame();
 
 
@@ -48,29 +52,15 @@ $(document).ready(function() {
         attack = 0;
         count = 1;
 
-        $(".character").css('display', 'inline');
-        $(".character").removeClass(".defender hero enemy");
-        $('.character').prependTo('.start');
-        $('#restart').css('display', 'none');
-        $('.character').css('background-color', 'white');
-        $('.character').css('color', 'black');
+        $(".character")
+            .css('display', 'inline')
+            .removeClass(".defender hero enemy")
+            .prependTo('.start')
+            .css('background-color', 'white')
+            .css('color', 'black');
 
-        $("#b").data({
-            "health": 120,
-            "power": 8
-        });
-        $("#e").data({
-            "health": 100,
-            "power": 5
-        });
-        $("#v").data({
-            "health": 150,
-            "power": 20
-        });
-        $("#o").data({
-            "health": 180,
-            "power": 5
-        });
+
+         $('#restart').css('display', 'none');
 
 
        $("#status").html(" ");
@@ -95,7 +85,8 @@ $(document).ready(function() {
     }
 
 
-    //Click event to choose hero. Others are moved to the staging row//
+    //Click event to choose hero. Others are moved to the staging area.  From the staging area, a defender can be chosen.
+    
     $('.character').on('click', function() {
 
         if (isDefenderChosen) {
@@ -104,9 +95,9 @@ $(document).ready(function() {
         } else if (isHeroChosen) {
             $(".defender").append($(this));
             console.log(this);
-            $(this).addClass('enemy');
-            $(this).css('background-color', 'black');
-            $(this).css('color', 'white');
+            $(this).addClass('enemy')
+                .css('background-color', 'black')
+                .css('color', 'white');
             isDefenderChosen = true;
             defender = ($(this).data("name"));
             defenderHealth = ($(this).data("health"));
@@ -116,13 +107,13 @@ $(document).ready(function() {
             audio.play();
             setTimeout(function() {
                 audio.pause();
-            }, 7000);
+            }, 1000 * 6);
 
 
         } else {
             $(this).addClass('hero');
-            $('.character').not(this).appendTo('.stage');
-            $('.character').not(this).css('background-color', 'red');
+            $('.character').not(this).appendTo('.stage')
+                        .css('background-color', 'red');
             isHeroChosen = true;
             hero = ($(this).data("name"));
             heroHealth = ($(this).data("health"));
@@ -133,6 +124,7 @@ $(document).ready(function() {
         }
     });
 
+// Click event to allow the player to attack the defender.
     var count = 1;
     $('#attack').on('click', function() {
         if ($('.defender').html().length == 0) {
@@ -168,7 +160,7 @@ $(document).ready(function() {
 
     })
 
-
+//restarts the game
 $('#restart').on('click', function() {
 
 
