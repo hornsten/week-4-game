@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#b").data({
         "name": "Beatrix Kiddo",
         "health": 120,
-        "power": 8,
+        "power": 12,
         "url": 'assets/images/beatrix.jpeg',
         "healthSpanId": "bhealth",
         "music": "assets/audio/beatrix.mp3"
@@ -11,7 +11,7 @@ $(document).ready(function() {
     $("#e").data({
         "name": "Elle Driver",
         "health": 100,
-        "power": 5,
+        "power": 11,
         "url": 'assets/images/elle.jpeg',
         "healthSpanId": "ehealth",
         "music": "assets/audio/whistle.mp3"
@@ -19,7 +19,7 @@ $(document).ready(function() {
     $("#v").data({
         "name": "Vernita Green",
         "health": 150,
-        "power": 20,
+        "power": 15,
         "url": 'assets/images/vernita.jpeg',
         "healthSpanId": "vhealth",
         "music": "assets/audio/vernita.mp3"
@@ -27,7 +27,7 @@ $(document).ready(function() {
     $("#o").data({
         "name": "Oren Ishii",
         "health": 180,
-        "power": 5,
+        "power": 10,
         "url": 'assets/images/oren.jpeg',
         "healthSpanId": "ohealth",
         "music": "assets/audio/oren.mp3"
@@ -73,19 +73,19 @@ $(document).ready(function() {
         });
 
 
-        document.getElementById("fight status").innerHTML = " ";
+       $("#status").html(" ");
         document.getElementById("beatrix").src = $("#b").data("url");
-        document.getElementById("bname").innerHTML = $("#b").data("name");
-        document.getElementById("bhealth").innerHTML = $("#b").data("health");
+        $("#bname").html($("#b").data("name"));
+        $("#bhealth").html($("#b").data("health"));
         document.getElementById("vernita").src = $("#v").data("url");
-        document.getElementById("vname").innerHTML = $("#v").data("name");
-        document.getElementById("vhealth").innerHTML = $("#v").data("health");
+        $("#vname").html($("#v").data("name"));
+        $("#vhealth").html($("#v").data("health"));
         document.getElementById("elle").src = $("#e").data("url");
-        document.getElementById("ename").innerHTML = $("#e").data("name");
-        document.getElementById("ehealth").innerHTML = $("#e").data("health");
+        $("#ename").html($("#e").data("name"));
+        $("#ehealth").html($("#e").data("health"));
         document.getElementById("oren").src = $("#o").data("url");
-        document.getElementById("oname").innerHTML = $("#o").data("name");
-        document.getElementById("ohealth").innerHTML = $("#o").data("health");
+        $("#oname").html($("#o").data("name"));
+        $("#ohealth").html($("#o").data("health"));
 
 
     }
@@ -132,34 +132,36 @@ $(document).ready(function() {
     var count = 1;
     $('#attack').on('click', function() {
         if ($('.defender').html().length == 0) {
-            document.getElementById("fight status").innerHTML = "No enemy here.";
+            $("#status").html("No enemy here.");
             return;
         } else if (heroHealth < 1) {
-            document.getElementById("fight status").innerHTML = "You lose.";
+            $("#status").html("You lose.");
             $('#restart').css('display', 'block');
             return;
 
         } else if ($('.stage').html().length == 0) {
             $('#restart').css('display', 'block');
-            document.getElementById("fight status").innerHTML = "You win! Click restart to play again."
+            $("#status").html("You win! Click restart to play again.");
             return;
 
-        } else if (defenderHealth < 1) {
+        } else if (defenderHealth < attack) {
             isDefenderChosen = false;
             $('.enemy').css('display', 'none');
-            document.getElementById("fight status").innerHTML = "You have defeated " + defender +
-                "!  Choose another opponent";
+            $("#status").html("You have defeated " + defender + "!  Choose another opponent");
 
         } else {
 
             attack = heroPower * count;
             count++;
             heroHealth -= defenderPower;
+            console.log(heroPower);
+            console.log(attack);
+            console.log("............");
             document.getElementById(heroId).innerHTML = heroHealth;
-            defenderHealth -= heroPower;
+            defenderHealth -= attack;
             document.getElementById(defenderId).innerHTML = defenderHealth;
-            document.getElementById("fight status").innerHTML = "You have attacked " + defender + " for " + attack + " damage.  " + defender + " has attacked you for " +
-                defenderPower + " damage."
+            $("#status").html("You have attacked " + defender + " for " + attack + " damage.  " + defender + " has attacked you for " +
+                defenderPower + " damage.");
 
         };
 
