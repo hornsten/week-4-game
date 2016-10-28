@@ -74,15 +74,19 @@ $(document).ready(function() {
 
 
        $("#status").html(" ");
+
         document.getElementById("beatrix").src = $("#b").data("url");
         $("#bname").html($("#b").data("name"));
         $("#bhealth").html($("#b").data("health"));
+
         document.getElementById("vernita").src = $("#v").data("url");
         $("#vname").html($("#v").data("name"));
         $("#vhealth").html($("#v").data("health"));
+
         document.getElementById("elle").src = $("#e").data("url");
         $("#ename").html($("#e").data("name"));
         $("#ehealth").html($("#e").data("health"));
+
         document.getElementById("oren").src = $("#o").data("url");
         $("#oname").html($("#o").data("name"));
         $("#ohealth").html($("#o").data("health"));
@@ -139,12 +143,12 @@ $(document).ready(function() {
             $('#restart').css('display', 'block');
             return;
 
-        } else if ($('.stage').html().length == 0) {
+        } else if ($('.stage').html().length == 0 && defenderHealth < attack) {
             $('#restart').css('display', 'block');
             $("#status").html("You win! Click restart to play again.");
             return;
 
-        } else if (defenderHealth < attack) {
+        } else if (defenderHealth < attack && $('.stage').html().length !== 0) {
             isDefenderChosen = false;
             $('.enemy').css('display', 'none');
             $("#status").html("You have defeated " + defender + "!  Choose another opponent");
@@ -154,9 +158,6 @@ $(document).ready(function() {
             attack = heroPower * count;
             count++;
             heroHealth -= defenderPower;
-            console.log(heroPower);
-            console.log(attack);
-            console.log("............");
             document.getElementById(heroId).innerHTML = heroHealth;
             defenderHealth -= attack;
             document.getElementById(defenderId).innerHTML = defenderHealth;
